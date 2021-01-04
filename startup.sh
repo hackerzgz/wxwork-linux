@@ -1,12 +1,24 @@
 # FROM REPO:
 # https://github.com/BoringCat/docker-WXWork
 
+WXWORK_NAME=wxwork
+
 # enable xsettings on not gnome desktop environment
 # install by `yay -S cinnamon-settings-daemon` on archlinux
-/usr/lib/cinnamon-settings-daemon/csd-xsettings
+/usr/lib/cinnamon-settings-daemon/csd-xsettings &
+
+# enable xhost service
+xhost +
+
+# check whether wxwork has already exists
+sudo docker ps -a | grep -q "${WXWORK_NAME}"
+if [ "$?" -eq "0" ]; then
+        sudo docker start "${WXWORK_NAME}"
+        exit 0
+fi
 
 # startup by docker command
-sudo docker run -d --name wxwork --device /dev/snd --ipc host \
+sudo docker run -d --name "${WXWORK_NAME}" --device /dev/snd --ipc host \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -v $HOME/WXWork:/WXWork \
         -v $HOME:/HostHome \
