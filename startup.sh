@@ -2,7 +2,7 @@
 # https://github.com/BoringCat/docker-WXWork
 
 # enable xsettings on not gnome desktop environment
-# download by `yay -S cinnamon-settings-daemon`
+# install by `yay -S cinnamon-settings-daemon` on archlinux
 /usr/lib/cinnamon-settings-daemon/csd-xsettings
 
 # startup by docker command
