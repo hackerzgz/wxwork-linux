@@ -5,7 +5,11 @@ WXWORK_NAME=wxwork
 
 # enable xsettings on not gnome desktop environment
 # install by `yay -S cinnamon-settings-daemon` on archlinux
-/usr/lib/cinnamon-settings-daemon/csd-xsettings &
+if ! ps -C 'csd-xsettings' >/dev/null
+then
+        /usr/lib/cinnamon-settings-daemon/csd-xsettings >/dev/null &
+fi
+
 
 # enable xhost service
 xhost +
