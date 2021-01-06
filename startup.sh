@@ -24,9 +24,9 @@ sudo docker run -d --name "${WXWORK_NAME}" --device /dev/snd --ipc host \
         -v $HOME:/HostHome \
         -v $HOME/wine-WXWork:/home/wechat/.deepinwine/Deepin-WXWork \
         -e DISPLAY=unix$DISPLAY \
-        -e XMODIFIERS=@im=fcitx \
-        -e QT_IM_MODULE=fcitx \
-        -e GTK_IM_MODULE=fcitx \
+        -e XMODIFIERS=@im=fcitx5 \
+        -e QT_IM_MODULE=fcitx5 \
+        -e GTK_IM_MODULE=fcitx5 \
         -e AUDIO_GID=`getent group audio | cut -d: -f3` \
         -e GID=`id -g` \
         -e UID=`id -u` \
