@@ -7,7 +7,7 @@ WXWORK_NAME=wxwork
 # install by `yay -S cinnamon-settings-daemon` on archlinux
 if ! ps -C 'csd-xsettings' >/dev/null
 then
-        /usr/lib/cinnamon-settings-daemon/csd-xsettings >/dev/null &
+    /usr/lib/cinnamon-settings-daemon/csd-xsettings 2>&1 > /dev/null &
 fi
 
 
